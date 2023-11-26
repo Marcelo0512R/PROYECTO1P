@@ -1,30 +1,25 @@
-"""
-URL configuration for sap project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 
-from estudiantes.views import agregar_estudiantes, eliminar_estudiante, ver_estudiantes, modificar_estudiante
-from webapp.views import bienvenida
+from estudiantes.views import agregar_estudiante, agregar_curso, agregar_calificacion, lista_estudiantes, lista_cursos, \
+    lista_calificaciones, modificar_estudiante, eliminar_estudiante, modificar_calificacion, eliminar_calificacion, \
+    modificar_curso, eliminar_curso
+from webapp.views import bienvenido
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',bienvenida, name='inicio'),
-    path('agregar_estudiantes/', agregar_estudiantes, name='agregar_estudiantes'),
-    path('ver_estudiantes', ver_estudiantes, name='ver_estudiantes'),
-    path('eliminar_estudiante/<int:id>', eliminar_estudiante, name='eliminar_estudiante'),
-    path('modificar_estudiante/<int:estudiante_id>', modificar_estudiante, name='modificar_estudiante'),
+    path('',bienvenido,name='inicio'),
+    path('agregar_estudiante/', agregar_estudiante, name='agregar_estudiante'),
+    path('agregar_curso/', agregar_curso, name='agregar_curso'),
+    path('agregar_calificacion/', agregar_calificacion, name='agregar_calificacion'),
+    path('lista_estudiantes/', lista_estudiantes, name='lista_estudiantes'),
+    path('lista_cursos/', lista_cursos, name='lista_cursos'),
+    path('lista_calificaciones/', lista_calificaciones, name='lista_calificaciones'),
+    path('modificar_estudiante/<int:estudiante_id>/', modificar_estudiante, name='modificar_estudiante'),
+    path('eliminar_estudiante/<int:estudiante_id>/', eliminar_estudiante, name='eliminar_estudiante'),
+    path('modificar_calificacion/<int:calificacion_id>/', modificar_calificacion, name='modificar_calificacion'),
+    path('eliminar_calificacion/<int:calificacion_id>/', eliminar_calificacion, name='eliminar_calificacion'),
+    path('modificar_curso/<int:curso_id>/', modificar_curso, name='modificar_curso'),
+    path('eliminar_curso/<int:curso_id>/', eliminar_curso, name='eliminar_curso'),
+
 ]
-#agg rutas (puedes nombrar url con nombres distintos, debes llamar el html por el nombre de la ruta que poniste
